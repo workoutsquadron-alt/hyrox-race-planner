@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HYROX Race Planner | When's Your Race?</title>
+  <meta name="description" content="Enter your race date and get a personalized, periodized HYROX training plan — Base, Build, Peak, Taper — in seconds." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600&family=Space+Mono:wght@400;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       LANDING SECTION
+  ============================================================ -->
+  <section class="landing" id="top">
+    <div class="landing__inner">
+      <span class="eyebrow">// TRAIN FOR YOUR RACE</span>
+      <h1 class="headline">WHEN'S<br>YOUR RACE?</h1>
+      <p class="subline">Paste in your race date. Get a real periodized plan — Base, Build, Peak, Taper — built around your level and schedule. No app, no subscription.</p>
+      <a href="#generator" class="cta" aria-label="Go to plan generator">Build My Plan</a>
+    </div>
+    <div class="landing__scroll-hint" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============================================================
+       GENERATOR SECTION
+  ============================================================ -->
+  <section class="generator" id="generator">
+    <div class="generator__inner">
+      <span class="section-label">THE GENERATOR</span>
+      <h2 class="generator__title">Your details</h2>
+
+      <form class="plan-form" id="planForm" novalidate>
+
+        <div class="form-row">
+          <label for="raceDate" class="form-label">Race Date</label>
+          <input
+            type="date"
+            id="raceDate"
+            name="raceDate"
+            class="form-input"
+            required
+            aria-describedby="raceDateHint"
+          />
+          <span class="form-hint" id="raceDateHint">Select the date of your HYROX race.</span>
+          <span class="form-error" id="raceDateError" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="form-row">
+          <fieldset class="form-fieldset">
+            <legend class="form-label">Training Level</legend>
+            <div class="radio-group" role="group" aria-labelledby="levelLabel">
+              <label class="radio-option">
+                <input type="radio" name="level" value="beginner" />
+                <span class="radio-label">Beginner</span>
+                <span class="radio-desc">New to HYROX or structured training</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="level" value="intermediate" checked />
+                <span class="radio-label">Intermediate</span>
+                <span class="radio-desc">6+ months structured training, completed a race</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="level" value="advanced" />
+                <span class="radio-label">Advanced</span>
+                <span class="radio-desc">Competitive, sub-90 min target</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-row">
+          <fieldset class="form-fieldset">
+            <legend class="form-label">Days Per Week</legend>
+            <div class="radio-group radio-group--inline" role="group">
+              <label class="radio-option radio-option--small">
+                <input type="radio" name="daysPerWeek" value="3" />
+                <span class="radio-label">3</span>
+              </label>
+              <label class="radio-option radio-option--small">
+                <input type="radio" name="daysPerWeek" value="4" checked />
+                <span class="radio-label">4</span>
+              </label>
+              <label class="radio-option radio-option--small">
+                <input type="radio" name="daysPerWeek" value="5" />
+                <span class="radio-label">5</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-row">
+          <label for="email" class="form-label">Email <span class="form-optional">(optional — for plan updates)</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="you@example.com"
+            autocomplete="email"
+            aria-describedby="emailHint"
+          />
+          <span class="form-hint" id="emailHint">We never share your email. Unsubscribe anytime.</span>
+          <span class="form-error" id="emailError" role="alert" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="cta cta--full" id="submitBtn">
+          Generate My Plan
+        </button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PLAN OUTPUT SECTION
+  ============================================================ -->
+  <section class="plan-output" id="planOutput" aria-live="polite" hidden>
+    <div class="plan-output__inner">
+
+      <div class="plan-header">
+        <p class="plan-cover-line" id="planCoverLine"></p>
+        <p class="plan-disclaimer">
+          This plan is for informational purposes only and does not constitute medical advice.
+          Consult a qualified professional before starting any new training programme.
+        </p>
+      </div>
+
+      <div class="plan-overview" id="planOverview"></div>
+
+      <div class="plan-schedule" id="planSchedule"></div>
+
+      <div class="plan-glossary" id="planGlossary"></div>
+
+      <div class="plan-gate">
+        <p class="plan-gate__copy">You're seeing a free preview. The full downloadable PDF includes daily coaching notes, warm-up routines, and loading tables.</p>
+        <a href="[SHOPIFY_CHECKOUT_URL]" class="cta plan-gate__cta" target="_blank" rel="noopener noreferrer">
+          Get the Full PDF
+        </a>
+        <p class="plan-gate__note"><!-- TODO: Replace [SHOPIFY_CHECKOUT_URL] with your real Shopify checkout link before going live. --></p>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="planner.js"></script>
+</body>
+</html>
